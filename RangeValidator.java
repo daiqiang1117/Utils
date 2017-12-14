@@ -15,6 +15,7 @@ import java.util.List;
 /**
  * Created by qiandai on 12/14/17.
  */
+
 public class RangeValidator
 {
     private final static String RANGE_SET_DELIMITER = ",";
@@ -35,6 +36,15 @@ public class RangeValidator
      *
      * Example string = "[10..10],[50..50],[100..1000]"
      * Format = add comma to google guava range set string
+     * Use [] for inclusive and () for exclusive settings
+     *
+     * INCLUSIVE EXAMPLES: [<LOWER1>..<UPPER1>]
+     *                     [<LOWER1>..<UPPER1>], [<LOWER2>..<UPPER2>]
+     * EXCLUSIVE EXAMPLES: (<LOWER1>..<UPPER1>)
+     *                     (<LOWER1>..<UPPER1>), (<LOWER2>..<UPPER2>)
+     * COMBINE EXAMPLES: [<LOWER1>..<UPPER1>)
+     *                   (<LOWER1>..<UPPER1>]
+     * INVALID EXAMPLES: [10..-1],(9..9)
      *
      * @param rangeSetString
      * @return
